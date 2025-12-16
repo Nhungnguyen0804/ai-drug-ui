@@ -1,0 +1,120 @@
+.card-main {
+  margin-top: 200px;
+}
+
+.title-card-input {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.title-card-input-left {
+  display: flex;
+  background: #6445ff;
+  background: linear-gradient(
+    165deg,
+    rgba(100, 69, 255, 1) 0%,
+    rgba(223, 117, 255, 1) 100%
+  );
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.title-card-input-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+/* done title card này */
+
+/* giờ đến input  */
+
+.smiles-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  margin-top: 30px; /* ==================================================================================== */
+}
+
+.smiles-input label {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+.smiles-input input {
+  padding: 10px 12px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.smiles-input input::placeholder {
+  color: #999;
+  /* font-style: italic; */
+}
+
+.smiles-input input:focus {
+  border-color: #2563eb; /* xanh nhẹ */
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* =============================================== đến phần button  */
+
+.predict-button {
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 30px;
+
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+
+  border: none !important;
+  border-radius: 8px;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.predict-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  border: none !important;
+}
+.predict-button:focus {
+  outline: none;
+}
+.predict-button:active {
+  transform: translateY(0);
+}
+
+.smiles-info {
+  width: 100%;
+  padding: 16px 20px;
+  margin-top: 16px;
+
+  background-color: #f5f9ff; /* nền xanh rất nhạt */
+  border: 2px solid #cfe2ff; /* viền xanh */
+  border-radius: 12px;
+
+  color: #1f3a8a; /* chữ xanh đậm */
+  font-size: 15px;
+  line-height: 1.6;
+
+  box-sizing: border-box;
+}
+
+.smiles-info strong {
+  font-weight: 700;
+  color: #1e40af; /* đậm hơn phần nội dung */
+}
