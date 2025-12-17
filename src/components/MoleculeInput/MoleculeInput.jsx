@@ -6,18 +6,17 @@ import SmilesInfo from "./SmilesInfo";
 import Card from "../UI/Card";
 
 import { Pill } from "lucide-react";
+import TitleCard from "../UI/TitleCard";
 
-function MoleculeInput() {
+function MoleculeInput({ onResult, onError }) {
   const [smiles, setSmiles] = useState("");
-  const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const handlePredict = async () => {
     if (!smiles) return;
 
     setLoading(true);
-    setError(null);
+    onError(null);
 
     try {
       const response = await fetch("http://localhost:8000/predict", {
@@ -36,32 +35,26 @@ function MoleculeInput() {
       }
 
       const data = await response.json();
-      setResult(data);
+      onResult(data);
     } catch (err) {
-      setError(err.message);
+      onError(err.message);
     } finally {
       setLoading(false);
     }
   };
   return (
     <Card style={{ marginTop: 30 }}>
-      <div className="title-card-input">
-        <div className="title-card-input-left">
-          <Pill style={{ color: "white" }} />
-        </div>
-        <div className="title-card-input-right">
-          <h2 style={{ margin: 5 }}>Molecule Input</h2>
-          <p style={{ margin: 5 }}>
-            Enter a SMILES notation to predict toxicity
-          </p>
-        </div>
-      </div>
+      <TitleCard
+        Icon={Pill}
+        title="Molecule Input"
+        subtitle="Enter a SMILES notation to predict toxicity"
+      />
       <hr />
 
       <SmilesInput onChange={setSmiles} />
 
       <PredictButton onClick={handlePredict} loading={loading} />
-      <SmilesInfo result={result} error={error} />
+      <SmilesInfo />
     </Card>
   );
 }

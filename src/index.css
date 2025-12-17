@@ -7,12 +7,12 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424; */
   color: black;
-  background: #dee8ff;
+  background: #bacbff;
   background: linear-gradient(
-    165deg,
-    rgba(222, 232, 255, 1) 0%,
+    112deg,
+    rgba(186, 203, 255, 1) 0%,
     rgba(255, 255, 255, 1) 50%,
-    rgba(242, 235, 255, 1) 100%
+    rgba(195, 179, 255, 1) 100%
   );
 
   font-synthesis: none;

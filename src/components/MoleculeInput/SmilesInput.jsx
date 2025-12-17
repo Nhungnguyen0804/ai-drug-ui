@@ -5,7 +5,7 @@ function SmilesInput({ value, onChange }) {
       <label>SMILES Notation</label>
       <input
         type="text"
-        placeholder="Ví dụ: CC(=O)Oc1ccccc1C(=O)O"
+        placeholder="Ví dụ: CC(=O)Oc1ccccc1C(=O)O hoặc CCO"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />

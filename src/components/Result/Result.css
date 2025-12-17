@@ -1,0 +1,5 @@
+.imageArea {
+  display: flex;
+  gap: 30px;
+  margin: 30px;
+}

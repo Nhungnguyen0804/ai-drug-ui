@@ -4,16 +4,19 @@ import Footer from "./components/Footer/Footer";
 import MoleculeInput from "./components/MoleculeInput/MoleculeInput";
 
 import "./App.css";
+import Result from "./components/Result/Result";
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [res, setRes] = useState(null);
+  const [error, setError] = useState(null);
   return (
     <>
       <Header />
 
       {/* Nội dung chính */}
       <div className="app-content">
-        <MoleculeInput />
+        {/* card  */}
+        <MoleculeInput onResult={setRes} onError={setError} />
+        <Result result={res} error={error} />
       </div>
       <Footer />
     </>
