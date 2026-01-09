@@ -19,16 +19,19 @@ function MoleculeInput({ onResult, onError }) {
     onError(null);
 
     try {
-      const response = await fetch("http://localhost:8000/predict", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          smiles: smiles,
-          skip_image: false,
-        }),
-      });
+      const response = await fetch(
+        "https://nhungnguyen0804-ai-drug.hf.space/predict",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            smiles: smiles,
+            skip_image: false,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("API error");

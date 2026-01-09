@@ -1,9 +1,12 @@
+import { useState, useMemo } from "react";
+
 import Card from "../UI/Card";
 import TitleCard from "../UI/TitleCard";
 import ToxicityProgress from "./ToxicityProgress";
 import { FlaskConical } from "lucide-react";
 
 const OrganCard = ({ result }) => {
+  const [sortDirection, setSortDirection] = useState(null); // null, 'asc', 'desc'
   const organLabelMap = {
     "Hepatobiliary disorders": "Hepatobiliary disorders (Rối loạn gan mật)",
     "Metabolism and nutrition disorders":
@@ -38,7 +41,32 @@ const OrganCard = ({ result }) => {
     "Nervous system disorders":
       "Nervous system disorders (Rối loạn hệ thần kinh)",
   };
+  // Xử lý logic sort
+  const handleSort = () => {
+    if (sortDirection === null) {
+      setSortDirection("desc"); // Lần đầu: cao → thấp
+    } else if (sortDirection === "desc") {
+      setSortDirection("asc"); // Lần 2: thấp → cao
+    } else {
+      setSortDirection("desc"); // Lần 3: cao → thấp (cycle lại)
+    }
+  };
+  // Sort dữ liệu dựa trên sortDirection
+  const sortedOrganData = useMemo(() => {
+    const entries = Object.entries(result.organ_toxicity);
 
+    if (sortDirection === null) {
+      return entries; // Không sort, giữ nguyên thứ tự ban đầu
+    }
+
+    return [...entries].sort(([, valueA], [, valueB]) => {
+      if (sortDirection === "desc") {
+        return valueB - valueA; // Cao → thấp
+      } else {
+        return valueA - valueB; // Thấp → cao
+      }
+    });
+  }, [result.organ_toxicity, sortDirection]);
   return (
     <Card>
       <TitleCard
@@ -47,9 +75,11 @@ const OrganCard = ({ result }) => {
         subtitle={
           "Giá trị biểu thị xác suất hoặc mức độ độc tính dự đoán cho từng hệ cơ quan"
         }
+        onSort={handleSort}
+        sortDirection={sortDirection}
       />
       <hr />
-      {Object.entries(result.organ_toxicity).map(([key, value]) => {
+      {sortedOrganData.map(([key, value]) => {
         // Bỏ tiền tố sider_
         const cleanKey = key.replace("sider_", "");
 

@@ -8,7 +8,8 @@ const Footer = () => {
         <div className="footer-section">
           <h3 className="footer-title">ToxiPedictAI</h3>
           <p className="footer-text">
-            Website demo model dự đoán độc tính thuốc 💊
+            Website demo mô hình AI dự đoán độc tính phân tử thuốc <br />
+            (SMILES-based) 💊
           </p>
         </div>
 
