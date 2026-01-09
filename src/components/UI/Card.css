@@ -45,6 +45,13 @@
   background-color: rgba(255, 255, 255, 0.1);
   transform: scale(1.05);
 }
+.title-card-btn-sort:active {
+  transform: scale(0.95);
+}
+.title-card-btn-sort:focus,
+.title-card-btn-sort:focus-visible {
+  outline: none;
+}
 .title-card-left {
   display: flex;
   background: #6445ff;

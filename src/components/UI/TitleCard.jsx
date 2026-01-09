@@ -1,6 +1,6 @@
 import "./Card.css";
 import { FaSortAmountDown } from "react-icons/fa";
-import { FaSortAmountUp } from "react-icons/fa";
+import { FaSortAmountUpAlt } from "react-icons/fa";
 import { FaSort } from "react-icons/fa";
 
 function TitleCard({
@@ -36,7 +36,7 @@ function TitleCard({
           }
         >
           {sortDirection === "asc" ? (
-            <FaSortAmountUp style={iconStyle} size={iconSize} />
+            <FaSortAmountUpAlt style={iconStyle} size={iconSize} />
           ) : sortDirection === "desc" ? (
             // z->a
             <FaSortAmountDown style={iconStyle} size={iconSize} />
